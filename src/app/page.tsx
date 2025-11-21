@@ -1,65 +1,107 @@
+"use client";
+
+import { Button } from "@/components/ui/Button";
+import { ProductCard } from "@/components/ui/ProductCard";
+import { PRODUCTS } from "@/lib/products";
+import { TextReveal } from "@/components/ui/TextReveal";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+
+import { SteamAnimation } from "@/components/ui/SteamAnimation";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="flex flex-col gap-16 pb-16">
+      {/* Hero Section */}
+      <section className="relative h-[80vh] w-full overflow-hidden">
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        {/* Background Image Placeholder - In real app, use a high quality photo or video */}
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 to-brand-black z-0" />
+        <div
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-80"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+
+        {/* Steam Animation */}
+        <div className="absolute inset-0 z-10 flex items-center justify-center translate-y-20">
+          <SteamAnimation />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <div className="relative z-20 container mx-auto flex h-full flex-col items-center justify-center px-4 text-center">
+          <div className="mb-6 flex flex-col items-center justify-center md:flex-row md:gap-4">
+            <TextReveal text="濃厚" className="text-5xl font-bold tracking-tighter text-brand-orange md:text-7xl" />
+            <TextReveal text="極まる。" className="text-5xl font-bold tracking-tighter text-white md:text-7xl" delay={0.5} />
+          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="mb-8 max-w-2xl text-lg text-gray-200 md:text-xl"
           >
+            行列のできるつけ麺店「麺屋 赤橙」の味を、<br className="hidden md:block" />
+            全国の皆様へお届けします。
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.6, duration: 0.5 }}
+          >
+            <Button size="lg" className="text-lg px-8 py-6" asChild>
+              <Link href="#products">
+                商品を見る
+              </Link>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Concept Section */}
+      <section className="container mx-auto px-4">
+        <div className="grid gap-12 md:grid-cols-2 items-center">
+          <div className="relative aspect-video overflow-hidden rounded-lg border border-white/10">
+            <div className="absolute inset-0 bg-gray-800 animate-pulse" /> {/* Placeholder for concept image */}
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/images/tsukemen.png"
+              alt="Cooking process"
+              fill
+              className="object-cover"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+          <div>
+            <h2 className="mb-6 text-3xl font-bold text-white">
+              一杯に込めた<span className="text-brand-orange">情熱</span>
+            </h2>
+            <p className="mb-4 text-gray-300 leading-relaxed">
+              赤橙のスープは、厳選された豚骨と魚介を長時間煮込み、
+              旨味を極限まで凝縮させています。
+            </p>
+            <p className="mb-6 text-gray-300 leading-relaxed">
+              麺はスープとの絡みを計算し尽くした特注の極太麺。
+              小麦の香りとモチモチとした食感が楽しめます。
+              お店で提供している味をそのまま冷凍パックに閉じ込めました。
+            </p>
+            <Button variant="outline" asChild>
+              <Link href="/about">
+                赤橙についてもっと知る
+              </Link>
+            </Button>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Products Section */}
+      <section id="products" className="container mx-auto px-4 py-12">
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-white">お取り寄せ商品</h2>
+          <p className="text-gray-400">ご自宅で本格的なつけ麺をお楽しみください</p>
+        </div>
+
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {PRODUCTS.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
