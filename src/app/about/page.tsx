@@ -20,7 +20,7 @@ export default function AboutPage() {
                 {/* Hero Image - Large Square */}
                 <div className="min-h-[300px] md:min-h-0 md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 group">
                     <Image
-                        src="/images/tsukemen.png"
+                        src="/images/about/hero.jpg"
                         alt="Tsukemen Hero"
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -37,6 +37,12 @@ export default function AboutPage() {
 
                 {/* Soup - Tall Portrait */}
                 <div className="min-h-[300px] md:min-h-0 md:col-span-1 md:row-span-2 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 group">
+                    <Image
+                        src="/images/about/soup.jpg"
+                        alt="Soup"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-40"
+                    />
                     <div className="absolute inset-0 bg-brand-orange/10 group-hover:bg-brand-orange/20 transition-colors z-0" />
                     <div className="relative z-10 p-8 h-full flex flex-col">
                         <div className="mb-auto">
@@ -54,6 +60,12 @@ export default function AboutPage() {
 
                 {/* Noodles - Wide Landscape */}
                 <div className="min-h-[200px] md:min-h-0 md:col-span-1 md:row-span-1 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 group">
+                    <Image
+                        src="/images/about/noodles.jpg"
+                        alt="Noodles"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-40 group-hover:opacity-30"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
                     <h3 className="text-xl font-bold text-white mb-2">自家製極太麺</h3>
                     <p className="text-sm text-gray-400">
@@ -64,6 +76,12 @@ export default function AboutPage() {
 
                 {/* Ingredients - Wide Landscape */}
                 <div className="min-h-[200px] md:min-h-0 md:col-span-1 md:row-span-1 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 group">
+                    <Image
+                        src="/images/about/ingredients.jpg"
+                        alt="Ingredients"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-40 group-hover:opacity-30"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/5 to-transparent" />
                     <h3 className="text-xl font-bold text-white mb-2">特製具材</h3>
                     <p className="text-sm text-gray-400">

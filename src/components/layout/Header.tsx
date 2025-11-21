@@ -5,6 +5,7 @@ import { useCart } from '@/lib/cartContext';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 export function Header() {
     const { cartCount, setIsCartOpen } = useCart();
@@ -38,10 +39,18 @@ export function Header() {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-brand-black/80 backdrop-blur-md">
             <div className="container mx-auto flex h-16 items-center justify-between px-4">
-                {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 z-50">
-                    <span className="text-2xl font-bold tracking-tighter text-brand-orange">
-                        麺屋 赤橙
+                <Link href="/" className="flex items-center gap-3 z-50">
+                    <div className="relative h-8 w-32">
+                        <Image
+                            src="/logo/logo.svg"
+                            alt="麺屋 赤橙"
+                            fill
+                            className="object-contain object-left"
+                            priority
+                        />
+                    </div>
+                    <span className="rounded-full border border-white/30 bg-white/5 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-sm">
+                        限定通販
                     </span>
                 </Link>
 

@@ -156,6 +156,46 @@ export default function CheckoutPage() {
                                 </div>
                             </div>
 
+                            <div className="space-y-4 border-t border-white/10 pt-6">
+                                <h3 className="font-bold text-white">お支払い情報 (デモ)</h3>
+                                <div className="space-y-4 rounded-md border border-white/10 bg-black/30 p-4">
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-gray-300">カード番号</label>
+                                        <div className="relative">
+                                            <input
+                                                type="text"
+                                                placeholder="0000 0000 0000 0000"
+                                                className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 pl-10 text-white focus:border-brand-orange focus:outline-none font-mono"
+                                                disabled
+                                            />
+                                            <svg className="absolute left-3 top-2.5 h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-gray-300">有効期限</label>
+                                            <input
+                                                type="text"
+                                                placeholder="MM / YY"
+                                                className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-white focus:border-brand-orange focus:outline-none font-mono"
+                                                disabled
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-gray-300">CVC</label>
+                                            <input
+                                                type="text"
+                                                placeholder="123"
+                                                className="w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-white focus:border-brand-orange focus:outline-none font-mono"
+                                                disabled
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div className="pt-6">
                                 <Button
                                     type="submit"

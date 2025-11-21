@@ -17,10 +17,12 @@ export default function HowToCookPage() {
                 {/* Step 1 */}
                 <div className="flex flex-col md:flex-row gap-8 items-center">
                     <div className="w-full md:w-1/2 aspect-video relative rounded-2xl overflow-hidden border border-white/10">
-                        {/* Placeholder for Step 1 Image */}
-                        <div className="absolute inset-0 bg-white/5 flex items-center justify-center text-gray-500">
-                            イメージ画像: 沸騰したお湯
-                        </div>
+                        <Image
+                            src="/images/how-to/step1-boil.jpg"
+                            alt="Step 1: 麺を茹でる"
+                            fill
+                            className="object-cover"
+                        />
                     </div>
                     <div className="w-full md:w-1/2">
                         <div className="inline-block bg-brand-orange text-white font-bold px-3 py-1 rounded-full mb-4">
@@ -39,10 +41,12 @@ export default function HowToCookPage() {
                 {/* Step 2 */}
                 <div className="flex flex-col md:flex-row-reverse gap-8 items-center">
                     <div className="w-full md:w-1/2 aspect-video relative rounded-2xl overflow-hidden border border-white/10">
-                        {/* Placeholder for Step 2 Image */}
-                        <div className="absolute inset-0 bg-white/5 flex items-center justify-center text-gray-500">
-                            イメージ画像: スープの湯煎
-                        </div>
+                        <Image
+                            src="/images/how-to/step2-soup.jpg"
+                            alt="Step 2: スープを温める"
+                            fill
+                            className="object-cover"
+                        />
                     </div>
                     <div className="w-full md:w-1/2">
                         <div className="inline-block bg-brand-orange text-white font-bold px-3 py-1 rounded-full mb-4">
@@ -60,10 +64,12 @@ export default function HowToCookPage() {
                 {/* Step 3 */}
                 <div className="flex flex-col md:flex-row gap-8 items-center">
                     <div className="w-full md:w-1/2 aspect-video relative rounded-2xl overflow-hidden border border-white/10">
-                        {/* Placeholder for Step 3 Image */}
-                        <div className="absolute inset-0 bg-white/5 flex items-center justify-center text-gray-500">
-                            イメージ画像: 盛り付け
-                        </div>
+                        <Image
+                            src="/images/how-to/step3-plate.jpg"
+                            alt="Step 3: 盛り付ける"
+                            fill
+                            className="object-cover"
+                        />
                     </div>
                     <div className="w-full md:w-1/2">
                         <div className="inline-block bg-brand-orange text-white font-bold px-3 py-1 rounded-full mb-4">

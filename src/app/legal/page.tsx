@@ -15,22 +15,22 @@ export default function LegalPage() {
                         <dd>麺屋 赤橙</dd>
 
                         <dt className="font-bold text-white">販売業者</dt>
-                        <dd>麺屋 赤橙｜木造 弘輝</dd>
+                        <dd>麺屋 赤橙｜山口 孝司</dd>
 
                         <dt className="font-bold text-white">販売責任者</dt>
-                        <dd>木造 弘輝</dd>
+                        <dd>山口 孝司</dd>
 
                         <dt className="font-bold text-white">所在地</dt>
-                        <dd>〒483-8259 愛知県江南市上奈良町緑13 エコープラザ１F</dd>
+                        <dd>〒500-8357 岐阜県岐阜市六条大溝２丁目８−７ セントラルキッチン</dd>
 
                         <dt className="font-bold text-white">電話番号</dt>
                         <dd>0587-56-3111</dd>
 
                         <dt className="font-bold text-white">メールアドレス</dt>
-                        <dd>info@akadaidai.com</dd>
+                        <dd>info@akadaidai.jp</dd>
 
                         <dt className="font-bold text-white">ホームページ</dt>
-                        <dd><a href="http://www.akadaidai.com" className="hover:text-brand-orange underline">http://www.akadaidai.com</a></dd>
+                        <dd><a href="https://akadaidai.jp" className="hover:text-brand-orange underline">https://akadaidai.jp</a></dd>
 
                         <dt className="font-bold text-white">取扱商品</dt>
                         <dd>麺販売</dd>

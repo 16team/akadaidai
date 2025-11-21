@@ -1,4 +1,5 @@
 import { AddToCartButton } from "@/components/ui/AddToCartButton";
+import { ShareButtons } from "@/components/ui/ShareButtons";
 import { getProduct } from "@/lib/products";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -50,6 +51,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         <p className="text-xs text-gray-500 text-center">
                             ※クール便での配送となります
                         </p>
+                        <div className="mt-4 pt-4 border-t border-white/10">
+                            <ShareButtons title={`麺屋 赤橙 - ${product.name}`} />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,7 +69,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     <div className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 group">
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
                         <Image
-                            src="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?q=80&w=1000&auto=format&fit=crop"
+                            src="/images/about/noodles.jpg"
                             alt="Noodles"
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60"
@@ -83,6 +87,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     {/* Soup Feature - Small Block */}
                     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 group">
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10" />
+                        <Image
+                            src="/images/about/soup.jpg"
+                            alt="Soup"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-40"
+                        />
                         <div className="absolute inset-0 bg-brand-orange/10 group-hover:bg-brand-orange/20 transition-colors" />
                         <div className="relative z-20 h-full flex flex-col justify-end">
                             <h3 className="text-xl font-bold text-white mb-2">濃厚スープ</h3>
@@ -95,6 +105,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     {/* Ingredients Feature - Small Block */}
                     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 group">
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10" />
+                        <Image
+                            src="/images/about/ingredients.jpg"
+                            alt="Ingredients"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-40"
+                        />
                         <div className="absolute inset-0 bg-white/5 group-hover:bg-white/10 transition-colors" />
                         <div className="relative z-20 h-full flex flex-col justify-end">
                             <h3 className="text-xl font-bold text-white mb-2">特製具材</h3>
@@ -111,6 +127,39 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <p className="text-gray-300 leading-loose">
                     {product.details}
                 </p>
+            </div>
+
+            {/* Product Specifications */}
+            <div className="max-w-3xl mx-auto mt-16">
+                <h3 className="text-xl font-bold text-white mb-6 text-center">商品仕様</h3>
+                <div className="rounded-lg border border-white/10 bg-white/5 overflow-hidden">
+                    <dl className="divide-y divide-white/10">
+                        {product.ingredients && (
+                            <div className="grid grid-cols-1 md:grid-cols-4 p-4">
+                                <dt className="font-bold text-gray-400 md:col-span-1">原材料名</dt>
+                                <dd className="text-gray-200 md:col-span-3 whitespace-pre-wrap text-sm leading-relaxed">{product.ingredients}</dd>
+                            </div>
+                        )}
+                        {product.content && (
+                            <div className="grid grid-cols-1 md:grid-cols-4 p-4">
+                                <dt className="font-bold text-gray-400 md:col-span-1">内容量</dt>
+                                <dd className="text-gray-200 md:col-span-3">{product.content}</dd>
+                            </div>
+                        )}
+                        {product.expiration && (
+                            <div className="grid grid-cols-1 md:grid-cols-4 p-4">
+                                <dt className="font-bold text-gray-400 md:col-span-1">賞味期限</dt>
+                                <dd className="text-gray-200 md:col-span-3">{product.expiration}</dd>
+                            </div>
+                        )}
+                        {product.preservation && (
+                            <div className="grid grid-cols-1 md:grid-cols-4 p-4">
+                                <dt className="font-bold text-gray-400 md:col-span-1">保存方法</dt>
+                                <dd className="text-gray-200 md:col-span-3">{product.preservation}</dd>
+                            </div>
+                        )}
+                    </dl>
+                </div>
             </div>
         </div>
     );

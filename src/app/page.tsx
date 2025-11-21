@@ -4,13 +4,30 @@ import { Button } from "@/components/ui/Button";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { PRODUCTS } from "@/lib/products";
 import { TextReveal } from "@/components/ui/TextReveal";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 import { SteamAnimation } from "@/components/ui/SteamAnimation";
 
+const HERO_IMAGES = [
+  "/images/main-visual.jpg",
+  "/images/main-visual-2.jpg",
+  "/images/main-visual-3.jpg",
+];
+
 export default function Home() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="flex flex-col gap-16 pb-16">
       {/* Hero Section */}
@@ -18,9 +35,19 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60 z-10" />
         {/* Background Image Placeholder - In real app, use a high quality photo or video */}
         <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 to-brand-black z-0" />
-        <div
-          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-80"
-        />
+
+        {/* Hero Slideshow */}
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.8 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5 }}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url('${HERO_IMAGES[currentImageIndex]}')` }}
+          />
+        </AnimatePresence>
 
         {/* Steam Animation */}
         <div className="absolute inset-0 z-10 flex items-center justify-center translate-y-20">
@@ -28,9 +55,9 @@ export default function Home() {
         </div>
 
         <div className="relative z-20 container mx-auto flex h-full flex-col items-center justify-center px-4 text-center">
-          <div className="mb-6 flex flex-col items-center justify-center md:flex-row md:gap-4">
-            <TextReveal text="濃厚" className="text-5xl font-bold tracking-tighter text-brand-orange md:text-7xl" />
-            <TextReveal text="極まる。" className="text-5xl font-bold tracking-tighter text-white md:text-7xl" delay={0.5} />
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-2 md:gap-3">
+            <TextReveal text="濃厚、" className="text-6xl font-bold tracking-tighter text-brand-orange md:text-7xl" />
+            <TextReveal text="極まる。" className="text-6xl font-bold tracking-tighter text-white md:text-7xl" delay={0.5} />
           </div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -61,7 +88,7 @@ export default function Home() {
           <div className="relative aspect-video overflow-hidden rounded-lg border border-white/10">
             <div className="absolute inset-0 bg-gray-800 animate-pulse" /> {/* Placeholder for concept image */}
             <Image
-              src="/images/tsukemen.png"
+              src="/images/top/concept.jpg"
               alt="Cooking process"
               fill
               className="object-cover"

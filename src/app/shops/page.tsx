@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import Image from "next/image";
 import Link from "next/link";
 
 const SHOPS = [
@@ -50,47 +51,60 @@ export default function ShopsPage() {
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {SHOPS.map((shop) => (
-                    <div key={shop.id} className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition-all hover:bg-white/10 hover:scale-[1.02] hover:shadow-xl hover:shadow-brand-orange/10">
-                        <div className="mb-4 flex items-center justify-between">
-                            <h2 className="text-2xl font-bold text-white group-hover:text-brand-orange transition-colors">{shop.name}</h2>
-                            <div className="h-2 w-2 rounded-full bg-brand-orange animate-pulse" />
+                    <div key={shop.id} className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition-all hover:bg-white/10 hover:scale-[1.02] hover:shadow-xl hover:shadow-brand-orange/10">
+                        {/* Shop Image */}
+                        <div className="relative h-64 w-full overflow-hidden">
+                            <Image
+                                src={`/images/shops/${shop.id}.jpg`}
+                                alt={shop.name}
+                                fill
+                                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 to-transparent" />
+                            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between z-10">
+                                <h2 className="text-2xl font-bold text-white group-hover:text-brand-orange transition-colors">{shop.name}</h2>
+                                <div className="h-2 w-2 rounded-full bg-brand-orange animate-pulse" />
+                            </div>
                         </div>
 
-                        <p className="mb-6 text-sm text-gray-400 leading-relaxed flex-grow">
-                            {shop.description}
-                        </p>
+                        <div className="p-6 flex flex-col flex-grow">
 
-                        <div className="space-y-4 text-sm text-gray-300">
-                            <div className="flex gap-3">
-                                <span className="shrink-0 font-bold text-brand-orange">住所</span>
-                                <span>{shop.address}</span>
-                            </div>
-                            {shop.tel && (
+                            <p className="mb-6 text-sm text-gray-400 leading-relaxed flex-grow">
+                                {shop.description}
+                            </p>
+
+                            <div className="space-y-4 text-sm text-gray-300">
                                 <div className="flex gap-3">
-                                    <span className="shrink-0 font-bold text-brand-orange">TEL</span>
-                                    <span>{shop.tel}</span>
+                                    <span className="shrink-0 font-bold text-brand-orange">住所</span>
+                                    <span>{shop.address}</span>
                                 </div>
-                            )}
-                            <div className="flex gap-3">
-                                <span className="shrink-0 font-bold text-brand-orange">時間</span>
-                                <div className="flex flex-col">
-                                    {shop.hours.map((h, i) => (
-                                        <span key={i}>{h}</span>
-                                    ))}
+                                {shop.tel && (
+                                    <div className="flex gap-3">
+                                        <span className="shrink-0 font-bold text-brand-orange">TEL</span>
+                                        <span>{shop.tel}</span>
+                                    </div>
+                                )}
+                                <div className="flex gap-3">
+                                    <span className="shrink-0 font-bold text-brand-orange">時間</span>
+                                    <div className="flex flex-col">
+                                        {shop.hours.map((h, i) => (
+                                            <span key={i}>{h}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="flex gap-3">
+                                    <span className="shrink-0 font-bold text-brand-orange">休み</span>
+                                    <span>{shop.holiday}</span>
                                 </div>
                             </div>
-                            <div className="flex gap-3">
-                                <span className="shrink-0 font-bold text-brand-orange">休み</span>
-                                <span>{shop.holiday}</span>
-                            </div>
-                        </div>
 
-                        <div className="mt-6 pt-6 border-t border-white/10">
-                            <Button variant="secondary" className="w-full group-hover:bg-brand-orange group-hover:text-white transition-colors" asChild>
-                                <a href={shop.mapLink} target="_blank" rel="noopener noreferrer">
-                                    Google Mapsで見る
-                                </a>
-                            </Button>
+                            <div className="mt-6 pt-6 border-t border-white/10">
+                                <Button variant="secondary" className="w-full group-hover:bg-brand-orange group-hover:text-white transition-colors" asChild>
+                                    <a href={shop.mapLink} target="_blank" rel="noopener noreferrer">
+                                        Google Mapsで見る
+                                    </a>
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 ))}

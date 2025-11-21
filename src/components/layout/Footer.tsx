@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function Footer() {
@@ -6,7 +7,14 @@ export function Footer() {
             <div className="container mx-auto px-4">
                 <div className="grid gap-8 md:grid-cols-3">
                     <div>
-                        <h3 className="mb-4 text-lg font-bold text-brand-orange">麺屋 赤橙</h3>
+                        <div className="relative mb-4 h-8 w-32">
+                            <Image
+                                src="/logo/logo.svg"
+                                alt="麺屋 赤橙"
+                                fill
+                                className="object-contain object-left"
+                            />
+                        </div>
                         <p className="text-gray-400">
                             こだわりのつけ麺をご家庭で。<br />
                             厳選された素材と職人の技が織りなす<br />
@@ -17,7 +25,7 @@ export function Footer() {
                         <h3 className="mb-4 font-bold text-white">リンク</h3>
                         <ul className="space-y-2 text-gray-400">
                             <li><Link href="/products" className="hover:text-brand-orange">商品一覧</Link></li>
-                            <li><Link href="/about" className="hover:text-brand-orange">店舗情報</Link></li>
+                            <li><Link href="/shops" className="hover:text-brand-orange">店舗情報</Link></li>
                             <li><Link href="/how-to" className="hover:text-brand-orange">美味しい作り方</Link></li>
                             <li><Link href="/contact" className="hover:text-brand-orange">お問い合わせ</Link></li>
                             <li><Link href="/privacy" className="hover:text-brand-orange">プライバシーポリシー</Link></li>
@@ -25,12 +33,11 @@ export function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h3 className="mb-4 font-bold text-white">店舗情報</h3>
+                        <h3 className="mb-4 font-bold text-white">販売情報</h3>
                         <p className="text-gray-400">
-                            〒500-0000<br />
-                            岐阜県岐阜市...<br />
-                            営業時間: 11:00 - 14:00 / 18:00 - 21:00<br />
-                            定休日: 水曜日
+                            〒500-8357<br />
+                            岐阜県岐阜市六条大溝２丁目８−７<br />
+                            セントラルキッチン
                         </p>
                     </div>
                 </div>
